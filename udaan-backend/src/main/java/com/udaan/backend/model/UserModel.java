@@ -84,4 +84,8 @@ public class UserModel {
     public void setCovidResult(String covidResult) {
         this.covidResult = covidResult;
     }
+
+    public static boolean filterPositiveCases(UserModel userModel) {
+        return "positive".equalsIgnoreCase(userModel.getCovidResult());
+    }
 }

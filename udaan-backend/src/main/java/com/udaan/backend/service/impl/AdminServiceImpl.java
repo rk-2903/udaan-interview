@@ -1,5 +1,6 @@
 package com.udaan.backend.service.impl;
 
+import com.udaan.backend.dto.ZoneWiseResult;
 import com.udaan.backend.model.AdminModel;
 import com.udaan.backend.model.UserModel;
 import com.udaan.backend.model.Zones;
@@ -45,11 +46,17 @@ public class AdminServiceImpl implements IAdminService {
     }
 
     @Override
-    public Zones updateZones() {
-        Map<String, Long> map = userRepository.findAll().stream()
+    public ZoneWiseResult updateZones(String pinCode) {
+        Map<String, Long> map = userRepository.findAllByPinCode(pinCode)
+                .stream()
+                .filter(UserModel::filterPositiveCases)
                 .collect(Collectors.groupingBy(UserModel::getPinCode, Collectors.counting()));
-
-        map.keySet().forEach(i -> {});
-        return null;
+        if(map.get(pinCode)> 5) {
+            return new ZoneWiseResult(map.get(pinCode).toString(),"RED");
+        }
+        if(map.get(pinCode) < 5 ){
+            return new ZoneWiseResult(map.get(pinCode).toString(),"ORANGE");
+        }
+        return new ZoneWiseResult(map.get(pinCode).toString(),"GREEN");
     }
 }

@@ -1,5 +1,6 @@
 package com.udaan.backend.controller;
 
+import com.udaan.backend.dto.ZoneWiseResult;
 import com.udaan.backend.model.AdminModel;
 import com.udaan.backend.model.Zones;
 import com.udaan.backend.service.IAdminService;
@@ -33,9 +34,9 @@ public class AdminController {
         return ResponseEntity.ok().body(adminService.updateCovidResult(userId, id, result));
     }
 
-    @PostMapping("admin/evaluate-positive-cases")
-    public ResponseEntity<Zones> updateZones () {
-        return ResponseEntity.ok().body(adminService.updateZones());
+    @PostMapping("admin/count-positive-cases/{pinCode}")
+    public ResponseEntity<ZoneWiseResult> updateZones (@PathVariable String pinCode) {
+        return ResponseEntity.ok().body(adminService.updateZones(pinCode));
     }
 
 }

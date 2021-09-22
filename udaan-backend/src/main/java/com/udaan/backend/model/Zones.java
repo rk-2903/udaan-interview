@@ -4,9 +4,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
 
+@Deprecated
 @Document(collection = "zones")
 public class Zones {
-    Map<String, String> map; //pincode, color
+    Map<String, String> map;
 
     public Map<String, String> getMap() {
         return map;

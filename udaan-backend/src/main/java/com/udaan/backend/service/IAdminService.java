@@ -1,5 +1,6 @@
 package com.udaan.backend.service;
 
+import com.udaan.backend.dto.ZoneWiseResult;
 import com.udaan.backend.model.AdminModel;
 import com.udaan.backend.model.Zones;
 
@@ -12,5 +13,5 @@ public interface IAdminService {
 
     Boolean updateCovidResult(String userId, String id, String result);
 
-    Zones updateZones();
+    ZoneWiseResult updateZones(String pinCode);
 }
