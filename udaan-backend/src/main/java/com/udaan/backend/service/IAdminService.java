@@ -13,5 +13,5 @@ public interface IAdminService {
 
     Boolean updateCovidResult(String userId, String id, String result);
 
-    ZoneWiseResult updateZones(String pinCode);
+    ZoneWiseResult getZoneUpdate(String pinCode);
 }

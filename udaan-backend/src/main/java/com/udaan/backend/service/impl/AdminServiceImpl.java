@@ -46,7 +46,7 @@ public class AdminServiceImpl implements IAdminService {
     }
 
     @Override
-    public ZoneWiseResult updateZones(String pinCode) {
+    public ZoneWiseResult getZoneUpdate(String pinCode) {
         Map<String, Long> map = userRepository.findAllByPinCode(pinCode)
                 .stream()
                 .filter(UserModel::filterPositiveCases)

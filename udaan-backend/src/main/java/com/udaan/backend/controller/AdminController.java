@@ -35,8 +35,8 @@ public class AdminController {
     }
 
     @PostMapping("admin/count-positive-cases/{pinCode}")
-    public ResponseEntity<ZoneWiseResult> updateZones (@PathVariable String pinCode) {
-        return ResponseEntity.ok().body(adminService.updateZones(pinCode));
+    public ResponseEntity<ZoneWiseResult> getZoneUpdate (@PathVariable String pinCode) {
+        return ResponseEntity.ok().body(adminService.getZoneUpdate(pinCode));
     }
 
 }
