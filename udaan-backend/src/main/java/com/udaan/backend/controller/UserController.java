@@ -31,7 +31,7 @@ public class UserController {
 
     @PutMapping("/user/{id}")
     public ResponseEntity<Integer> riskEvaluation(@PathVariable String id,
-                                                    @RequestParam List<String> symptoms,
+                                                    @RequestParam(required = false) List<String> symptoms,
                                                     @RequestParam boolean travelHistory,
                                                     @RequestParam boolean contactWithCovidPatient) {
         return ResponseEntity.ok().body(userService.riskEvaluation(id, symptoms, travelHistory, contactWithCovidPatient));
