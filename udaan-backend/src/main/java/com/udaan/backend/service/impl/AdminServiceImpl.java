@@ -1,12 +1,16 @@
 package com.udaan.backend.service.impl;
 
 import com.udaan.backend.model.AdminModel;
+import com.udaan.backend.model.UserModel;
+import com.udaan.backend.model.Zones;
 import com.udaan.backend.repository.AdminRepository;
 import com.udaan.backend.repository.UserRepository;
 import com.udaan.backend.service.IAdminService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class AdminServiceImpl implements IAdminService {
@@ -38,5 +42,14 @@ public class AdminServiceImpl implements IAdminService {
             System.out.println("Error while updating the user"  + e.getMessage());
         }
         return true;
+    }
+
+    @Override
+    public Zones updateZones() {
+        Map<String, Long> map = userRepository.findAll().stream()
+                .collect(Collectors.groupingBy(UserModel::getPinCode, Collectors.counting()));
+
+        map.keySet().forEach(i -> {});
+        return null;
     }
 }

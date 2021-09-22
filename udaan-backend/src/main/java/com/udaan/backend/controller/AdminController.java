@@ -1,6 +1,7 @@
 package com.udaan.backend.controller;
 
 import com.udaan.backend.model.AdminModel;
+import com.udaan.backend.model.Zones;
 import com.udaan.backend.service.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,11 @@ public class AdminController {
                                                      @PathVariable String id,
                                                      @RequestParam String result) {
         return ResponseEntity.ok().body(adminService.updateCovidResult(userId, id, result));
+    }
+
+    @PostMapping("admin/evaluate-positive-cases")
+    public ResponseEntity<Zones> updateZones () {
+        return ResponseEntity.ok().body(adminService.updateZones());
     }
 
 }

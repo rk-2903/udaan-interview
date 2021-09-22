@@ -3,7 +3,9 @@ package com.udaan.backend.model;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Document(collection = "user-info")
 public class UserModel {
@@ -13,6 +15,7 @@ public class UserModel {
     private String phoneNumber;
     private String pinCode;
     private String covidResult;
+    private long timeStamp;
     private List<String> symptoms = new ArrayList<>();
     private boolean travelHistory;
     private boolean contactWithCovidPatient;

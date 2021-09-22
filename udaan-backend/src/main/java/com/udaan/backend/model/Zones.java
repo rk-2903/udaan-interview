@@ -6,7 +6,7 @@ import java.util.Map;
 
 @Document(collection = "zones")
 public class Zones {
-    Map<String, String> map;
+    Map<String, String> map; //pincode, color
 
     public Map<String, String> getMap() {
         return map;
