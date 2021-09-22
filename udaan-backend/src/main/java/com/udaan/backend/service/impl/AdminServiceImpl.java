@@ -54,7 +54,7 @@ public class AdminServiceImpl implements IAdminService {
         if(map.get(pinCode)> 5) {
             return new ZoneWiseResult(map.get(pinCode).toString(),"RED");
         }
-        if(map.get(pinCode) < 5 ){
+        if(map.get(pinCode) <= 5 && map.get(pinCode) > 0 ){
             return new ZoneWiseResult(map.get(pinCode).toString(),"ORANGE");
         }
         return new ZoneWiseResult(map.get(pinCode).toString(),"GREEN");
